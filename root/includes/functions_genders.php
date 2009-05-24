@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB3
-* @copyright (c) 2007, 2008 evil3
+* @copyright (c) 2007, 2008, 2009 evil3
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
@@ -18,7 +18,6 @@ if (!defined('IN_PHPBB'))
 /**
  * Get user gender
  *
- * @author eviL3
  * @param int $user_gender User's gender
  * @param bool $use_text Returns text if true or image if false
  * @return string Gender
@@ -52,5 +51,3 @@ function get_user_gender($user_gender, $use_text = false)
 
 	return $gender;
 }
-
-?>
