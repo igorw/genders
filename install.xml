@@ -91,6 +91,7 @@ After installation, you will have to refresh your imagesets and templates in the
 				<changelog lang="en">
 					<change>Updated for phpBB 3.0.5</change>
 					<change>Updated to MODX 1.2.2</change>
+					<change>Changed to using UMIL</change>
 				</changelog>
 			</entry>
 		</history>
@@ -99,7 +100,6 @@ After installation, you will have to refresh your imagesets and templates in the
 		<copy>
 			<file from="root/*.*" to="*.*" />
 		</copy>
-		<sql><![CDATA[ALTER TABLE phpbb_users ADD user_gender TINYINT(1) UNSIGNED NOT NULL DEFAULT 0;]]></sql>
 		<open src="memberlist.php">
 			<edit>
 				<find><![CDATA[include($phpbb_root_path . 'includes/functions_display.' . $phpEx);]]></find>

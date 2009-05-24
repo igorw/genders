@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package phpBB3
+* @package genders
 * @copyright (c) 2007, 2008, 2009 evil3
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
