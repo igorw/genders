@@ -15,39 +15,40 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
-/**
- * Get user gender
- *
- * @param int $user_gender User's gender
- * @param bool $use_text Returns text if true or image if false
- * @return string Gender
- */
-function get_user_gender($user_gender, $use_text = false)
+class genders
 {
-	global $user, $config;
+	public static $genders = array(
+		0 => 'gender_x',
+		1 => 'gender_m',
+		2 => 'gender_f',
+	);
 
-	switch ($user_gender)
+	/**
+	 * Get user gender
+	 *
+	 * @param int $user_gender User's gender
+	 * @param bool $use_text Returns text if true or image if false
+	 * @return string Gender
+	 */
+	public static function get($user_gender, $use_text = false)
 	{
-		case GENDER_M:
-			$gender = 'gender_m';
-		break;
+		global $user, $config;
 
-		case GENDER_F:
-			$gender = 'gender_f';
-		break;
+		$gender = isset(self::$genders[$user_gender]) ? self::$genders[$user_gender] : self::$genders[0];
 
-		default:
-			$gender = 'gender_x';
+		return ($use_text) ? $user->lang[strtoupper($gender)] : $user->img('icon_' . $gender, strtoupper($gender));
 	}
 
-	if ($use_text)
+	public static function select($selected_gender)
 	{
-		$gender = $user->lang[strtoupper($gender)];
-	}
-	else
-	{
-		$gender = $user->img('icon_' . $gender, strtoupper($gender));
-	}
+		$output = '';
 
-	return $gender;
+		foreach (self::$genders as $gender)
+		{
+			$selected = ($gender == $selected_gender) ? ' checked="checked"' : '';
+			$output .= "<input type=\"radio\" name=\"gender\" id=\"gender_$gender\" value=\"$gender\"$selected /> <label for=\"gender_$gender\">" . self::get($gender, true) . '</label>';
+		}
+
+		return $output;
+	}
 }

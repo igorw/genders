@@ -1,0 +1,16 @@
+HOW TO ADD A NEW GENDER OPTION
+
+Adding a new gender is pretty easy. First of all, you need to modify includes/functions_gender.php. You need to add a new gender option to the end of the $genders array, like so:
+
+	public static $genders = array(
+		0 => 'gender_x',
+		1 => 'gender_m',
+		2 => 'gender_f',
+		3 => 'gender_trans',
+	);
+
+Make sure you add it as the last item, else it will mess any existing genders up.
+
+Next, you will have to add language entries to both language/en/common.php and language/en/acp/styles.php.
+
+Last, you will need to add the images to your imageset. For this, you'll have to put the image file into styles/prosilver/imageset/ and add an entry to language/en/acp/styles.php. For the change to take effect you need to refresh your imageset in the ACP.
