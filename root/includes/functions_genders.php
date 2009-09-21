@@ -19,8 +19,8 @@ class genders
 {
 	public static $genders = array(
 		0 => 'gender_x',
+		2 => 'gender_f', // ladies first
 		1 => 'gender_m',
-		2 => 'gender_f',
 	);
 
 	/**
